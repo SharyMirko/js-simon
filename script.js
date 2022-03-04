@@ -38,10 +38,15 @@ function setupGame(){
     let gameInput = document.querySelector('.game');
     gameInput.classList.remove('hide')
 }
+
+const list = ['primo', 'secondo', 'terzo', 'quarto', 'quinto']
 btnPlay.addEventListener('click', function(){
-    if(userNumbInput[0].value == randomNumber[0] && userNumbInput[1].value == randomNumber[1] && userNumbInput[2].value == randomNumber[2] && userNumbInput[3].value == randomNumber[3] && userNumbInput[4].value == randomNumber[4]) {
-       outputResults.innerHTML = "hai vinto"
-    } else {
-        outputResults.innerHTML = `hai sbagliato! i numeri giusti erano ${randomNumber}`
+    outputResults.innerHTML = '';
+    for (i=0; i < 5; i++) {
+        if(userNumbInput[i].value == randomNumber[i]){
+            outputResults.innerHTML += `il ${list[i]} numero è giusto!<br>`
+        } else {
+            outputResults.innerHTML += `il ${list[i]} numero è sbagliato! quello giusto era ${randomNumber[i]}<br>`
+        }
     }
 });
